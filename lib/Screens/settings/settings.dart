@@ -1,5 +1,6 @@
 import 'package:azkarapp/Screens/settings/contents/dark_mode.dart';
 import 'package:flutter/material.dart';
+import 'dart:math';
 
 class Settings extends StatelessWidget {
   static String routeName = 'Setting';
