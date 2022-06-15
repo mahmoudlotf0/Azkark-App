@@ -1,10 +1,8 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:provider/provider.dart';
 
 import '../../../common_widget/appbar_widget.dart';
-import '../../../models/zekrtype.dart';
 import '../../resources/color_manager.dart';
 import '../../resources/font_manager.dart';
 import '../../resources/style_manager.dart';
@@ -21,60 +19,56 @@ class Details extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
-      onWillPop: () async {
-        return await viewModel.onWillPop(context);
-      },
-      child: Scaffold(
-        appBar: _buildAppBar(context),
-        body: Consumer<DetailsViewModel>(
-          builder: (context, _, child) {
-            return PageView(
-              physics: const BouncingScrollPhysics(),
-              controller: viewModel.pageController,
-              reverse: true,
-              onPageChanged: (int currentIndex) {
-                viewModel.onPageChange(currentIndex);
-              },
-              children: _buildPageViewBody(
-                azkar: viewModel.getZekr(),
-                viewModel: viewModel,
-              ),
-            );
-          },
-        ),
-      ),
-    );
+        onWillPop: () async {
+          return await viewModel.onWillPop(context);
+        },
+        child: Scaffold(
+          appBar: _buildAppBar(context),
+          body: Padding(
+            padding: EdgeInsets.symmetric(
+              horizontal: AppPadding.p10.w,
+              vertical: AppPadding.p10.h,
+            ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                LinearPercent(
+                  azkar: viewModel.getZekr(),
+                  viewModel: viewModel,
+                ),
+                _buildPageView(),
+              ],
+            ),
+          ),
+        ));
   }
 
-  List<Padding> _buildPageViewBody({
-    required List<Zekr> azkar,
-    required DetailsViewModel viewModel,
-  }) {
-    return azkar.map((Zekr zekr) {
-      return Padding(
-        padding: EdgeInsets.symmetric(
-          horizontal: AppPadding.p10.w,
-          vertical: AppPadding.p10.h,
-        ),
-        child: GestureDetector(
-          onTap: () {
-            viewModel.onPressedZekr(zekr);
-          },
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              LinearPercent(
-                azkar: azkar,
-                viewModel: viewModel,
-              ),
-              SizedBox(height: AppSize.s10.h),
-              DisplayZekr(zekr: zekr),
-              FooterWidget(viewModel: viewModel),
-            ],
-          ),
-        ),
-      );
-    }).toList();
+  Widget _buildPageView() {
+    return Expanded(
+      child: PageView.builder(
+        physics: const BouncingScrollPhysics(),
+        controller: viewModel.pageController,
+        reverse: true,
+        onPageChanged: (int currentIndex) {
+          viewModel.onPageChange(currentIndex);
+        },
+        itemBuilder: (_, index) {
+          return GestureDetector(
+            onTap: () {
+              viewModel.onPressedZekr(viewModel.getZekr()[index]);
+            },
+            child: Column(
+              children: [
+                SizedBox(height: AppSize.s10.h),
+                DisplayZekr(zekr: viewModel.getZekr()[index]),
+                FooterWidget(viewModel: viewModel),
+              ],
+            ),
+          );
+        },
+        itemCount: viewModel.getZekr().length,
+      ),
+    );
   }
 
   AppBar _buildAppBar(BuildContext context) {
@@ -88,7 +82,7 @@ class Details extends StatelessWidget {
       ),
       leading: IconButton(
         onPressed: () {
-          viewModel.resetPageIndx(context);
+          viewModel.resetPageIndex(context);
           viewModel.restCircleStart(context);
         },
         icon: const Icon(Icons.arrow_back_rounded),

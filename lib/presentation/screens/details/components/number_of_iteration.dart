@@ -20,6 +20,7 @@ class NumberOfIteration extends StatelessWidget {
       child: AutoSizeText(
         detailsProvider.getZekr()[detailsProvider.pageIndex].number,
         style: getBoldStyle(color: ColorManager.black, fontsize: FontSize.s18),
+        textAlign: TextAlign.center,
       ),
     );
   }

@@ -55,7 +55,7 @@ class DetailsViewModel with ChangeNotifier {
     notifyListeners();
   }
 
-  resetPageIndx(BuildContext context) async {
+  resetPageIndex(BuildContext context) async {
     pageIndex = 0;
     navigatorPop(context);
   }
@@ -70,6 +70,6 @@ class DetailsViewModel with ChangeNotifier {
 
   Future<bool> onWillPop(BuildContext context) async {
     restCircleStart(context);
-    return resetPageIndx(context);
+    return resetPageIndex(context);
   }
 }
