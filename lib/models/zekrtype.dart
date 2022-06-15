@@ -1,12 +1,10 @@
-class ZekrType {
+class Zekr {
   String id;
   String number;
   int numberInCircule;
   List<String> categories;
-
   String description;
-
-  ZekrType({
+  Zekr({
     required this.categories,
     required this.id,
     required this.number,

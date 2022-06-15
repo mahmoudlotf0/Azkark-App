@@ -1,8 +1,8 @@
-class Categories {
+class Category {
   String id;
   String title;
 
-  Categories({
+  Category({
     required this.id,
     required this.title,
   });
