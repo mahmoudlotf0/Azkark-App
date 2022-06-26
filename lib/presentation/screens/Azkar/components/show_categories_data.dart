@@ -1,20 +1,17 @@
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:azkarapp/presentation/screens/details_zekr/details_zekr_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../models/categories.dart';
-import '../../../resources/color_manager.dart';
 import '../../../resources/constants_manager.dart';
-import '../../../resources/font_manager.dart';
-import '../../../resources/style_manager.dart';
-import '../../details/details_view_model.dart';
-import '../home_view_model.dart';
+import '../azkar_view_model.dart';
 
-class CategoriesData extends StatelessWidget {
-  final HomeViewModel viewModel;
+class ShowCategoriesData extends StatelessWidget {
+  final AzkarViewModel viewModel;
   final Category category;
 
-  const CategoriesData({
+  const ShowCategoriesData({
     required this.category,
     required this.viewModel,
     Key? key,
@@ -22,7 +19,8 @@ class CategoriesData extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    DetailsViewModel detailsViewModel = DetailsViewModel.getObject(context);
+    DetailsZekrViewModel detailsViewModel =
+        DetailsZekrViewModel.getObject(context);
     return GestureDetector(
       onTap: () {
         viewModel.category = category;
@@ -33,17 +31,14 @@ class CategoriesData extends StatelessWidget {
         borderRadius: BorderRadius.circular(AppConstants.borderRadius.r),
         elevation: AppConstants.elevation,
         child: Container(
-          margin: EdgeInsets.all(8.r),
+          margin: EdgeInsets.all(6.r),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(AppConstants.borderRadius.r),
           ),
           child: Center(
             child: AutoSizeText(
               category.title,
-              style: getBoldStyle(
-                color: ColorManager.black,
-                fontsize: FontSize.s22,
-              ),
+              style: Theme.of(context).textTheme.headline1,
               maxLines: 2,
               textAlign: TextAlign.center,
             ),

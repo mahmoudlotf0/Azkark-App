@@ -1,17 +1,17 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 
 AppBar appBarWidget({
-  required Widget title,
+  required String title,
   List<Widget>? actions,
   Widget? leading,
-  double? height,
 }) {
   return AppBar(
     elevation: 0,
-    title: title,
+    title: AutoSizeText(
+      title,
+    ),
     actions: actions,
-    centerTitle: true,
-    toolbarHeight: height,
     leading: leading,
   );
 }

@@ -28,6 +28,8 @@ dev_dependencies:
 
 
 flutter:
+  assets:
+    - assets/icons/
   fonts:
     - family: Cairo
       fonts:

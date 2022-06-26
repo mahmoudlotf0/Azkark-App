@@ -1,7 +1,7 @@
-import 'models/zekrtype.dart';
+import 'models/zekr.dart';
 import 'models/categories.dart';
 
-List<Category> categories = [
+List<Category> categoriesData = [
   Category(
     id: 'c1',
     title: 'اذكار الصباح',
@@ -169,7 +169,7 @@ List<Category> categories = [
   // ),
 ];
 
-List<Zekr> azkar = [
+List<Zekr> azkarData = [
   Zekr(
     numberInCircule: 1,
     id: 'z1',

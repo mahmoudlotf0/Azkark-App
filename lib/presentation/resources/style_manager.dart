@@ -13,7 +13,6 @@ TextStyle _getTextStyle(
   );
 }
 
-//* Regular Style
 TextStyle getRegularStyle({
   double fontsize = FontSize.s16,
   required Color color,
@@ -21,18 +20,6 @@ TextStyle getRegularStyle({
   return _getTextStyle(
     fontsize,
     FontWeightManager.regular,
-    FontConstants.fontFamiltyCairo,
-    color,
-  );
-}
-
-TextStyle getLightStyle({
-  double fontsize = FontSize.s16,
-  required Color color,
-}) {
-  return _getTextStyle(
-    fontsize,
-    FontWeightManager.light,
     FontConstants.fontFamiltyCairo,
     color,
   );
@@ -57,18 +44,6 @@ TextStyle getSemiBoldStyle({
   return _getTextStyle(
     fontsize,
     FontWeightManager.semiBold,
-    FontConstants.fontFamiltyCairo,
-    color,
-  );
-}
-
-TextStyle getMeduimStyle({
-  double fontsize = FontSize.s16,
-  required Color color,
-}) {
-  return _getTextStyle(
-    fontsize,
-    FontWeightManager.meduim,
     FontConstants.fontFamiltyCairo,
     color,
   );

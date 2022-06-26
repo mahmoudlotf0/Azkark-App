@@ -1,10 +1,12 @@
+import 'package:azkarapp/presentation/screens/Azkar/azkar.dart';
+import 'package:azkarapp/presentation/screens/Azkar/azkar_view_model.dart';
+import 'package:azkarapp/presentation/screens/details_zekr/details_zekr.dart';
+import 'package:azkarapp/presentation/screens/details_zekr/details_zekr_view_model.dart';
+import 'package:azkarapp/presentation/screens/settings/settings.dart';
+import 'package:azkarapp/presentation/screens/settings/settings_view_model.dart';
 import 'package:flutter/material.dart';
 
 import '../../models/categories.dart';
-import '../screens/details/details.dart';
-import '../screens/details/details_view_model.dart';
-import '../screens/home/home.dart';
-import '../screens/home/home_view_model.dart';
 
 class Routes {
   static const String homeScreen = '/';
@@ -14,21 +16,25 @@ class Routes {
 
 class RouteGenerator {
   static Route? getRoute(RouteSettings settings) {
-    HomeViewModel homeViewModel = HomeViewModel();
+    AzkarViewModel homeViewModel = AzkarViewModel();
+    DetailsZekrViewModel detailsViewModel = DetailsZekrViewModel();
+
     switch (settings.name) {
       case Routes.homeScreen:
         return MaterialPageRoute(
-          builder: (_) => Home(viewModel: homeViewModel),
+          builder: (_) => Azkar(viewModel: homeViewModel),
         );
-      // case Routes.settingsScreen:
-      //   return MaterialPageRoute(builder: (_) => SettingsScreen());
+      case Routes.settingsScreen:
+        return MaterialPageRoute(
+            builder: (_) => Settings(
+                  viewModel: SettingViewModel(),
+                ));
       case Routes.detailsScreen:
         return MaterialPageRoute(
           builder: (context) {
-            DetailsViewModel viewModel = DetailsViewModel.getObject(context);
             final Category routeArgument = settings.arguments as Category;
-            viewModel.category = routeArgument;
-            return Details(viewModel: viewModel);
+            detailsViewModel.category = routeArgument;
+            return DetailsZekr(viewModel: detailsViewModel);
           },
         );
     }
