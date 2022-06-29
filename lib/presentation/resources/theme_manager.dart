@@ -11,6 +11,7 @@ import 'font_manager.dart';
 
 class ThemeManager {
   static ThemeData lightTheme = ThemeData(
+    hintColor: ColorManager.lightGrey,
     //*  background in all app
     scaffoldBackgroundColor: ColorManager.white,
     //*  container , grid view
@@ -73,6 +74,8 @@ class ThemeManager {
     ),
   );
   static ThemeData darkTheme = ThemeData(
+    hintColor: ColorManager.darkGrey,
+
     //*  background in all app
     scaffoldBackgroundColor: ColorManager.black,
     //*  container , grid view

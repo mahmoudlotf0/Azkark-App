@@ -1,3 +1,4 @@
+import 'package:azkarapp/presentation/screens/sebha/sebha_view_model.dart';
 import 'package:flutter/material.dart';
 
 import 'package:azkarapp/presentation/screens/Azkar/azkar.dart';
@@ -12,7 +13,7 @@ class ShareProvider with ChangeNotifier {
   List<Widget> screens = [
     const Home(),
     Azkar(viewModel: AzkarViewModel()),
-    const Sebha(),
+    Sebha(viewModel: SebhaViewModel()),
   ];
   void onPressedBottomBar(int currentIndex) {
     currentIndexBottomBar = currentIndex;
