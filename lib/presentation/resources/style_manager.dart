@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 TextStyle _getTextStyle(
     double fontSize, FontWeight fontWeight, String fontFamily, Color color,
-    {double letterSpacing = 1.0}) {
+    {double letterSpacing = 0}) {
   return TextStyle(
     fontSize: fontSize,
     fontFamily: fontFamily,
@@ -18,7 +18,7 @@ TextStyle getRegularStyle(
   return _getTextStyle(
     fontsize,
     FontWeightManager.regular,
-    FontConstants.fontFamiltyCairo,
+    FontConstants.fontFamiltyTajawal,
     color,
   );
 }
@@ -27,7 +27,7 @@ TextStyle getBoldStyle({double fontsize = FontSize.s16, required Color color}) {
   return _getTextStyle(
     fontsize,
     FontWeightManager.bold,
-    FontConstants.fontFamiltyCairo,
+    FontConstants.fontFamiltyTajawal,
     color,
   );
 }
@@ -37,7 +37,7 @@ TextStyle getSemiBoldStyle(
   return _getTextStyle(
     fontsize,
     FontWeightManager.semiBold,
-    FontConstants.fontFamiltyCairo,
+    FontConstants.fontFamiltyTajawal,
     color,
   );
 }

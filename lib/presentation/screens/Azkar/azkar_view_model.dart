@@ -1,6 +1,7 @@
-import 'package:azkarapp/presentation/screens/details_zekr/details_zekr_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
+import '../details_zekr/details_zekr_view_model.dart';
 
 import '../../../main_data.dart';
 import '../../../models/categories.dart';
@@ -46,10 +47,6 @@ class AzkarViewModel with ChangeNotifier {
     changeIsSearch(false);
     notifyListeners();
     hideKeyboard();
-  }
-
-  void onPressedSettingsIcon(BuildContext context) {
-    Navigator.of(context).pushNamed(Routes.settingsScreen);
   }
 
   // void hideKeyboard() {

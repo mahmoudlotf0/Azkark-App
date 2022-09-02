@@ -3,8 +3,9 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 
-import 'package:azkarapp/presentation/screens/Azkar/azkar_view_model.dart';
-import 'package:azkarapp/presentation/screens/details_zekr/details_zekr_view_model.dart';
+import 'presentation/screens/Azkar/azkar_view_model.dart';
+import 'presentation/screens/details_zekr/details_zekr_view_model.dart';
+import 'presentation/screens/sebha/sebha_view_model.dart';
 
 import 'common_widget/bottom_bar_widget.dart';
 import 'presentation/resources/route_manager.dart';
@@ -26,6 +27,7 @@ void main() async {
             create: (context) => ShareProvider()..getIsDark()),
         ChangeNotifierProvider(create: (context) => DetailsZekrViewModel()),
         ChangeNotifierProvider(create: (context) => AzkarViewModel()),
+        ChangeNotifierProvider(create: (context) => SebhaViewModel()),
       ],
       child: const MyApp(),
     ),

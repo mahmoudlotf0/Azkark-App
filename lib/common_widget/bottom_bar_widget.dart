@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 
-import 'package:azkarapp/presentation/resources/assets_manager.dart';
-import 'package:azkarapp/presentation/resources/color_manager.dart';
-import 'package:azkarapp/providers/share_provider.dart';
+import '../presentation/resources/assets_manager.dart';
+import '../presentation/resources/color_manager.dart';
+import '../providers/share_provider.dart';
 
 class BottomBarWidget extends StatelessWidget {
   const BottomBarWidget({Key? key}) : super(key: key);
@@ -35,9 +35,10 @@ class BottomBarWidget extends StatelessWidget {
           ),
           BottomNavigationBarItem(
             icon: _buildIcon(
-                image: ImageAssets.azkarOutLine,
-                context: context,
-                color: Theme.of(context).dividerColor),
+              image: ImageAssets.azkarOutLine,
+              context: context,
+              color: Theme.of(context).dividerColor,
+            ),
             label: 'الأذكار',
             activeIcon: _buildIcon(
               image: ImageAssets.azkarFill,

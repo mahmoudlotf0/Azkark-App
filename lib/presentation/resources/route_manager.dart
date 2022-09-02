@@ -1,9 +1,12 @@
-import 'package:azkarapp/presentation/screens/Azkar/azkar.dart';
-import 'package:azkarapp/presentation/screens/Azkar/azkar_view_model.dart';
-import 'package:azkarapp/presentation/screens/details_zekr/details_zekr.dart';
-import 'package:azkarapp/presentation/screens/details_zekr/details_zekr_view_model.dart';
-import 'package:azkarapp/presentation/screens/settings/settings.dart';
-import 'package:azkarapp/presentation/screens/settings/settings_view_model.dart';
+import '../../models/sebha.dart';
+import '../screens/Azkar/azkar.dart';
+import '../screens/Azkar/azkar_view_model.dart';
+import '../screens/details_sebha/details_sebha.dart';
+import '../screens/details_sebha/details_sebha_view_model.dart';
+import '../screens/details_zekr/details_zekr.dart';
+import '../screens/details_zekr/details_zekr_view_model.dart';
+import '../screens/settings/settings.dart';
+import '../screens/settings/settings_view_model.dart';
 import 'package:flutter/material.dart';
 
 import '../../models/categories.dart';
@@ -12,13 +15,14 @@ class Routes {
   static const String homeScreen = '/';
   static const String detailsScreen = 'detailsScreen';
   static const String settingsScreen = 'settingsScreen';
+  static const String detailsSebha = 'detailsSebha';
 }
 
 class RouteGenerator {
   static Route? getRoute(RouteSettings settings) {
     AzkarViewModel homeViewModel = AzkarViewModel();
     DetailsZekrViewModel detailsViewModel = DetailsZekrViewModel();
-
+    DetailsSebhaViewModel detailsSebhaViewModel = DetailsSebhaViewModel();
     switch (settings.name) {
       case Routes.homeScreen:
         return MaterialPageRoute(
@@ -37,6 +41,15 @@ class RouteGenerator {
             return DetailsZekr(viewModel: detailsViewModel);
           },
         );
+      case Routes.detailsSebha:
+        return MaterialPageRoute(builder: (context) {
+          final SebhaModel sebhaModel = settings.arguments as SebhaModel;
+          detailsSebhaViewModel.sebhaModel = sebhaModel;
+          return DetailsSebha(
+            viewModel: detailsSebhaViewModel,
+          );
+        });
     }
+    return null;
   }
 }

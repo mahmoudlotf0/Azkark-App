@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 
-import 'package:azkarapp/presentation/resources/color_manager.dart';
-import 'package:azkarapp/presentation/resources/constants_manager.dart';
-import 'package:azkarapp/presentation/resources/values_manager.dart';
+import '../../../resources/color_manager.dart';
+import '../../../resources/constants_manager.dart';
+import '../../../resources/values_manager.dart';
 
 import '../azkar_view_model.dart';
 

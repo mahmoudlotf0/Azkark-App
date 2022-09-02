@@ -1,10 +1,11 @@
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:azkarapp/presentation/resources/font_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 
-import 'package:azkarapp/presentation/resources/constants_manager.dart';
-import 'package:azkarapp/presentation/resources/values_manager.dart';
+import '../../../resources/constants_manager.dart';
+import '../../../resources/values_manager.dart';
 
 import '../details_zekr_view_model.dart';
 
@@ -24,10 +25,8 @@ class DisplayZekr extends StatelessWidget {
           },
           itemBuilder: (_, index) {
             return Padding(
-              padding: const EdgeInsets.only(
-                bottom: AppPadding.p5,
-                top: AppPadding.p5,
-              ),
+              padding: EdgeInsets.symmetric(
+                  vertical: AppPadding.p5.h, horizontal: AppPadding.p5.w),
               child: Material(
                 borderRadius:
                     BorderRadius.circular(AppConstants.borderRadius.r),
@@ -49,7 +48,11 @@ class DisplayZekr extends StatelessWidget {
                       provider.azkar[index].description,
                       textAlign: TextAlign.start,
                       textDirection: TextDirection.rtl,
-                      style: Theme.of(context).textTheme.headline1,
+                      style: Theme.of(context).textTheme.headline1!.copyWith(
+                            fontWeight: FontWeightManager.extraBold,
+                            wordSpacing: 1,
+                            height: 2,
+                          ),
                     ),
                   ),
                 ),
@@ -62,3 +65,12 @@ class DisplayZekr extends StatelessWidget {
     );
   }
 }
+// TextStyle(
+//                         fontFamily: 'Tajawal',
+//                         fontSize: 22,
+//                         fontWeight: FontWeight.w800,
+//                         color: ColorManager.black,
+//                         letterSpacing: 0,
+//                         wordSpacing: 1,
+//                         height: 2,
+//                       ),

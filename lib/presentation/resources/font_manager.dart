@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 class FontConstants {
-  static const String fontFamiltyCairo = 'Cairo';
-  static const String fontFamiltyDigital = 'digital';
+  // static const String fontFamiltyDigital = 'digital';
+  static const String fontFamiltyTajawal = 'Tajawal';
 }
 
 class FontWeightManager {
@@ -11,6 +11,7 @@ class FontWeightManager {
   static const FontWeight meduim = FontWeight.w500;
   static const FontWeight semiBold = FontWeight.w600;
   static const FontWeight bold = FontWeight.w700;
+  static const FontWeight extraBold = FontWeight.w800;
 }
 
 class FontSize {

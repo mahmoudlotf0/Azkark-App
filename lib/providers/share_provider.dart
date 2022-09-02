@@ -1,11 +1,12 @@
-import 'package:azkarapp/presentation/screens/sebha/sebha_view_model.dart';
+import '../presentation/resources/constants_manager.dart';
+import '../presentation/screens/sebha/sebha_view_model.dart';
 import 'package:flutter/material.dart';
 
-import 'package:azkarapp/presentation/screens/Azkar/azkar.dart';
-import 'package:azkarapp/presentation/screens/Azkar/azkar_view_model.dart';
-import 'package:azkarapp/presentation/screens/home/home.dart';
-import 'package:azkarapp/presentation/screens/sebha/sebha.dart';
-import 'package:azkarapp/services/shared_prefs.dart';
+import '../presentation/screens/Azkar/azkar.dart';
+import '../presentation/screens/Azkar/azkar_view_model.dart';
+import '../presentation/screens/home/home.dart';
+import '../presentation/screens/sebha/sebha.dart';
+import '../services/shared_prefs.dart';
 
 class ShareProvider with ChangeNotifier {
   //! Bottom Navigation Bar
@@ -33,7 +34,8 @@ class ShareProvider with ChangeNotifier {
   }
 
   getIsDark() async {
-    isDark = (await SharedPrefs.getDataBool('isDark')) ?? false;
+    isDark =
+        (await SharedPrefs.getDataBool(AppConstants.isdarkKeyPrefs)) ?? false;
     notifyListeners();
   }
 }
