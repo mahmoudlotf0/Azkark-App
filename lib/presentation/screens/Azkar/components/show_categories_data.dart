@@ -1,4 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:azkarapp/providers/share_provider.dart';
+import 'package:provider/provider.dart';
 import '../../details_zekr/details_zekr_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -30,6 +32,9 @@ class ShowCategoriesData extends StatelessWidget {
       child: Material(
         borderRadius: BorderRadius.circular(AppConstants.borderRadius.r),
         elevation: AppConstants.elevation,
+        color: Provider.of<ShareProvider>(context).isDark
+            ? Theme.of(context).hintColor
+            : null,
         child: Container(
           margin: EdgeInsets.all(6.r),
           decoration: BoxDecoration(

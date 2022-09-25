@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 
+import '../../../../providers/share_provider.dart';
 import '../../../resources/constants_manager.dart';
 import '../../../resources/values_manager.dart';
 
@@ -30,6 +31,9 @@ class DisplayZekr extends StatelessWidget {
               child: Material(
                 borderRadius:
                     BorderRadius.circular(AppConstants.borderRadius.r),
+                color: Provider.of<ShareProvider>(context).isDark
+                    ? Theme.of(context).hintColor
+                    : null,
                 elevation: AppConstants.elevation,
                 child: Container(
                   padding: EdgeInsets.symmetric(
@@ -65,12 +69,3 @@ class DisplayZekr extends StatelessWidget {
     );
   }
 }
-// TextStyle(
-//                         fontFamily: 'Tajawal',
-//                         fontSize: 22,
-//                         fontWeight: FontWeight.w800,
-//                         color: ColorManager.black,
-//                         letterSpacing: 0,
-//                         wordSpacing: 1,
-//                         height: 2,
-//                       ),

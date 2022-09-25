@@ -10,6 +10,7 @@ AppBar appBarWidget({
     elevation: 0,
     title: AutoSizeText(
       title,
+      maxLines: 3,
     ),
     actions: actions,
     leading: leading,

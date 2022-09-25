@@ -5,11 +5,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 
-import 'package:azkarapp/common_widget/appbar_widget.dart';
-import 'package:azkarapp/presentation/resources/color_manager.dart';
-import 'package:azkarapp/presentation/resources/values_manager.dart';
-import 'package:azkarapp/presentation/screens/settings/settings_view_model.dart';
-import 'package:azkarapp/providers/share_provider.dart';
+import '../../../common_widget/appbar_widget.dart';
+import '../../resources/color_manager.dart';
+import '../../resources/values_manager.dart';
+import 'settings_view_model.dart';
+import '../../../providers/share_provider.dart';
 
 class Settings extends StatelessWidget {
   final SettingViewModel viewModel;

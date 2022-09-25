@@ -20,7 +20,7 @@ class AzkarViewModel with ChangeNotifier {
     Provider.of<DetailsZekrViewModel>(context, listen: false).getZekr();
 
     Navigator.of(context).pushNamed(
-      Routes.detailsScreen,
+      Routes.detailsZekrScreen,
       arguments: category,
     );
   }

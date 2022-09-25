@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class FontConstants {
-  // static const String fontFamiltyDigital = 'digital';
+  static const String fontFamiltyDigital = 'digital';
   static const String fontFamiltyTajawal = 'Tajawal';
 }
 
